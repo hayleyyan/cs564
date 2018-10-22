@@ -1,0 +1,11 @@
+//Write a query to generate Table 1 in the sr28_doc.pdf
+
+SELECT	nutrD.Nutr_No, nutrDef.NutrDesc, nutrDef.Nutr_No
+
+FROM	NUT_DATA nutrD, NUTR_DEF nutrDef
+
+WHERE	nutrD.Nutr_No = nutrDef.Nutr_No
+
+GROUP BY	nutrD.Nutr_No
+
+HAVING 		COUNT(*) > 0

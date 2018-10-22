@@ -1,0 +1,14 @@
+//Find all the food items that contain both "Caffeine" and "Alcohol, ethy1" and then list both these ingredients per 100 grams of the food item
+
+SELECT		nutrDef.NutrDesc
+
+FROM		FOOD_DES foodD,
+			FD_GROUP foodG,
+			NUT_DEF nutrDef,
+			NUT_DATA nutrD
+	
+WHERE		foodD.NDB_No = nutrD.NDB_No and
+			foodD.FdGrp_Cd = foodG.FdGrp_Cd and
+			nutrD.Nutr_No = nutrDef.Nutr_No and 
+			nutrDef.NutrDesc = "Caffeine" and
+			nutrDef.NutrDesc = "Alcohol, ethy1"

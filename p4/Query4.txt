@@ -1,0 +1,14 @@
+//Print the name of the food item(s) with the highest number of nutrients in it and also print the count of the nutrients
+
+SELECT		foodG.FdGrp_Desc, 
+			COUNT(nutrD.Nutr_No)
+
+FROM		FD_GROUP foodG, 
+			NUT_DATA nutrD, 
+			FOOD_DES foodD
+
+WHERE		foodD.NDB_No = nutrD.NDB_No and 
+			foodG.FdGrp_Cd = foodD.FdGrp_Cd and 
+			nutrD.Nutr_Val = (SELECT	MAX(nutrD.Nutr_Val)
+							  FROM		NUT_DATA nutrD)
+

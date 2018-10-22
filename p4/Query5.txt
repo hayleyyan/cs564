@@ -1,0 +1,12 @@
+//List all the food item whose average nutrition value (total nutrition value per 100 grams/ number of nutrients) is greater than that of "McDONALD's, Hamburger"
+
+SELECT		foodD.FdGrp_Desc
+
+
+FROM		NUT_DATA nutrD, FOOD_DES foodD, FD_GROUP foodG 
+
+
+WHERE		foodG.NDB_No = nutrD.NDB_No and
+			foodG.FdGrp_Cd = foodD.FdGrp_Cd and
+			nutrD.Nutr_Val = (SELECT	AVG(nutrD.Nutr_Val)
+							  FROM		NUT_DATA nutrD)

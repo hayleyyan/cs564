@@ -1,0 +1,10 @@
+//Print the name of the food item(s) with the highest nutrition value per 100 grams
+
+SELECT 	 nutrDef.NurtrDesc
+
+FROM     NUT_DATA nutrD, NUTR_DEF nutrDef
+
+WHERE    nutrD.Nutr_No = nutrDef.Nutr_No, 
+
+		nutrD.Nutr_Val = (SELECT   MAX(nutrD.Nutr_Val)
+						  FROM	   NUT_DATA nutrD)
